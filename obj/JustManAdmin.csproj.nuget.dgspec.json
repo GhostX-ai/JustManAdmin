@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/ghostx/Documents/Projects/JustManAdmin/JustManAdmin.csproj": {}
+    "E:\\Alif_Projects\\Projects\\JustManAdmin\\JustManAdmin.csproj": {}
   },
   "projects": {
-    "/home/ghostx/Documents/Projects/JustManAdmin/JustManAdmin.csproj": {
+    "E:\\Alif_Projects\\Projects\\JustManAdmin\\JustManAdmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ghostx/Documents/Projects/JustManAdmin/JustManAdmin.csproj",
+        "projectUniqueName": "E:\\Alif_Projects\\Projects\\JustManAdmin\\JustManAdmin.csproj",
         "projectName": "JustManAdmin",
-        "projectPath": "/home/ghostx/Documents/Projects/JustManAdmin/JustManAdmin.csproj",
-        "packagesPath": "/home/ghostx/.nuget/packages/",
-        "outputPath": "/home/ghostx/Documents/Projects/JustManAdmin/obj/",
+        "projectPath": "E:\\Alif_Projects\\Projects\\JustManAdmin\\JustManAdmin.csproj",
+        "packagesPath": "C:\\Users\\Администратор\\.nuget\\packages\\",
+        "outputPath": "E:\\Alif_Projects\\Projects\\JustManAdmin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/ghostx/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Администратор\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,6 +37,22 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -45,6 +63,16 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -53,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.406\\RuntimeIdentifierGraph.json"
         }
       }
     }
