@@ -1,0 +1,24 @@
+@model JustManAdmin.Models.MainCategory
+@{
+    ViewData["Title"] = Model.Name;
+}
+<form asp-controller="Home" asp-action="EditM" enctype="multipart/form-data" asp-asp-antiforgery="true">
+    <div asp-asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div>
+            <input type="hidden" asp-for="Id" value="@Model.Id" />
+            <label>Name</label>
+            <input type="text" asp-for="Name" value="@Model.Name"/>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <img src="@Model.ImgPath"/>
+            <label>Name</label>
+            <input type="file" name="img"/>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-info" onclick="return(confirm('Are you sure?'))" value="Edit"/>
+        </div>
+    </div>
+</form>

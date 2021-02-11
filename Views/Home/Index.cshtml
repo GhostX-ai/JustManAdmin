@@ -1,8 +1,39 @@
-﻿@{
+﻿@model List<JustManAdmin.Models.MainCategory>
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<a asp-controller="Home" asp-action="Add" class="btn btn-success">
+Add
+</a>
+<table class="table">
+    <thead>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Image</td>
+        <td>Actions</td>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Name</td>
+                <td><img src="@x.ImgPath" class="icons"/></td>
+                <td>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-id="@x.Id"
+                     class="btn btn-info">
+                        Edit
+                    </a>
+                    <a onclick="return(confirm('Are you sure?'))" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id"
+                     class="btn btn-danger">
+                        Delete                        
+                    </a>
+                    <a asp-controller="Article" asp-action="Articles" asp-route-id="@x.Id"
+                        class="btn btn-success">
+                        Articles
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

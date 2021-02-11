@@ -14392,8 +14392,18 @@
   "RootNamespace": "JustManAdmin",
   "Documents": [
     {
+      "FilePath": "/home/ghostx/Documents/Projects/JustManAdmin/Views/Home/Edit.cshtml",
+      "TargetPath": "Views\\Home\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ghostx/Documents/Projects/JustManAdmin/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/ghostx/Documents/Projects/JustManAdmin/Views/Home/Add.cshtml",
+      "TargetPath": "Views\\Home\\Add.cshtml",
       "FileKind": "mvc"
     },
     {

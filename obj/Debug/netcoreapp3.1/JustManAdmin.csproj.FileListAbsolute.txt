@@ -167,3 +167,5 @@ E:/Alif_Projects/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/runtimes/win/lib/
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/JustManAdmin.genruntimeconfig.cache
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/User/SignIn.cshtml.g.cs
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/User/SignUp.cshtml.g.cs
+/home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/Home/Add.cshtml.g.cs
+/home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/Home/Edit.cshtml.g.cs

@@ -1,0 +1,22 @@
+@model JustManAdmin.Models.MainCategory
+@{
+    ViewData["Title"] = "Add";
+}
+<form asp-controller="Home" asp-action="Add" asp-asp-antiforgery="true" enctype="multipart/form-data">
+    <div asp-asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div>
+            <label>Name</label>
+            <input type="text" asp-for="Name"/>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label>Name</label>
+            <input type="file" name="img"/>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-success" value="Add"/>
+        </div>
+    </div>
+</form>
