@@ -6,26 +6,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using JustManAdmin.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace JustManAdmin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseHomeController
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private DataContext context;
+        public HomeController(ILogger<HomeController> logger,DataContext _context)
         {
+            this.context = _context;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            var li = await context.MainCategories.ToListAsync();
+            return View(li);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,0 +1,25 @@
+@model JustManAdmin.Models.User
+@{
+    ViewData["Title"] = "SignUp";
+}
+<section class="AuthForm">
+    <form asp-controller="User" asp-action="SignUp" asp-antiforgery="true">
+        <div asp-validation-summary="ModelOnly"></div>
+        <h1>SignUp</h1>
+        <div class="container">
+            <div>
+                <label asp-for="Login">Login</label>
+                <input type="text" class="input" asp-for="Login" />
+                <span asp-validation-for="Login"></span>
+            </div>
+            <div>
+                <label asp-for="Password">Password</label>
+                <input type="password" class="input" asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-success" value="SignIn" />
+            </div>
+        </div>
+    </form>
+</section>
