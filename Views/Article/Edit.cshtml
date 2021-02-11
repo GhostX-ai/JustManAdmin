@@ -1,0 +1,21 @@
+@model JustManAdmin.Models.Article
+@{
+    ViewData["Title"] = Model.Title;
+}
+<form asp-controller="Article" asp-action="EditArticle" asp-antiforgery="true">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <input type="hidden" asp-for="Id" value="@Model.Id"/>
+        <div>
+            <label>Title</label>
+            <input type="text" asp-for="Title" value="@Model.Title"/>
+        </div>
+        <div>
+            <label>Text</label>
+            <textarea asp-for="Text">@Model.Text</textarea>
+        </div>
+        <div>
+            <input type="submit" value="Edit" onclick="return(confirm('Are you sure?'))"/>
+        </div>
+    </div>
+</form>
