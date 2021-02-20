@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Add Article";
 }
-<form asp-controller="Article" asp-action="AddArticle" asp-antiforgery="true">
+<form asp-controller="Article" asp-action="AddArticle" asp-antiforgery="true" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
         <input type="hidden" asp-for="MainCategory.Id" value="@ViewBag.MId"/>
@@ -13,6 +13,10 @@
         <div>
             <label>Text</label>
             <textarea asp-for="Text"></textarea>
+        </div>
+        <div>
+            <label>Image</label>
+            <input type="file" name="img"/>
         </div>
         <div>
             <input type="submit" value="Add" />

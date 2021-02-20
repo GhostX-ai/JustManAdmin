@@ -62,6 +62,23 @@ namespace JustManAdmin.Controllers
             }
             return View();
         }
+        
+        [Authorize(Roles="Admin")]
+        public IActionResult EditPassword()
+        {
+            return View();
+        }
+        [Authorize(Roles="Admin")]
+        [HttpPost]
+        public async Task<IActionResult> EditPassword(User model)
+        {
+            var oldModel = await context.Users.FirstAsync(p=> p.Login == model.Login);
+            model.Password = Hashing.CreateMD5(model.Password);
+            oldModel.Password = model.Password;
+            await context.SaveChangesAsync();
+            return RedirectToAction("Index","Home");
+        }
+
         public async Task Authenticate(User model)
         {
             // создаем один claim

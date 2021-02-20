@@ -9,7 +9,6 @@ Add
     <thead>
         <td>ID</td>
         <td>Name</td>
-        <td>Image</td>
         <td>Actions</td>
     </thead>
     <tbody>
@@ -18,7 +17,6 @@ Add
             <tr>
                 <td>@x.Id</td>
                 <td>@x.Name</td>
-                <td><img src="@x.ImgPath" class="icons"/></td>
                 <td>
                     <a asp-controller="Home" asp-action="Edit" asp-route-id="@x.Id"
                      class="btn btn-info">

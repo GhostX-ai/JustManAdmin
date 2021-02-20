@@ -87,7 +87,6 @@ E:/Alif_Projects/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/runtimes/win/lib/
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/JustManAdmin.dll
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/JustManAdmin.pdb
 /home/ghostx/Documents/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/appsettings.Development.json
-/home/ghostx/Documents/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
 /home/ghostx/Documents/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/appsettings.json
 /home/ghostx/Documents/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/JustManAdmin
 /home/ghostx/Documents/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/JustManAdmin.deps.json
@@ -172,3 +171,5 @@ E:/Alif_Projects/Projects/JustManAdmin/bin/Debug/netcoreapp3.1/runtimes/win/lib/
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/Article/Add.cshtml.g.cs
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/Article/Articles.cshtml.g.cs
 /home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/Article/Edit.cshtml.g.cs
+/home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/scopedcss/bundle/JustManAdmin.styles.css
+/home/ghostx/Documents/Projects/JustManAdmin/obj/Debug/netcoreapp3.1/Razor/Views/User/EditPassword.cshtml.g.cs

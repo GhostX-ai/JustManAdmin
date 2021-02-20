@@ -11,6 +11,7 @@ Add
         <td>Title</td>
         <td>Text</td>
         <td>Actions</td>
+        <td>Image</td>
     </thead>
     <tbody>
         @foreach (var x in Model)
@@ -19,6 +20,7 @@ Add
                 <td>@x.Id</td>
                 <td>@x.Title</td>
                 <td><p>@x.Text</p></td>
+                <td><img width="100" src="@x.ImgPath"/></td>
                 <td>
                     <a asp-controller="Article" asp-action="Edit" asp-route-id="@x.Id"
                      class="btn btn-info">

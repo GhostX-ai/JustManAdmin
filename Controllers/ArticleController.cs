@@ -1,7 +1,9 @@
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using JustManAdmin.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,8 +37,14 @@ namespace JustManAdmin.Controllers
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> AddArticle(Article model)
+        public async Task<IActionResult> AddArticle(Article model, IFormFile img)
         {
+            var filePath = Path.Combine(Path.GetFullPath("wwwroot/imgs/"), img.FileName);
+            using (var stream = System.IO.File.Create(filePath))
+            {
+                await img.CopyToAsync(stream);
+            }
+            model.ImgPath = "/imgs/" + img.FileName;
             model.MainCategory = await context.MainCategories.FirstAsync(p =>
                 p.Id == model.MainCategory.Id);
             context.Articles.Add(model);
@@ -47,11 +55,11 @@ namespace JustManAdmin.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var model = await context.Articles
-                .Include(p=>p.MainCategory)
+                .Include(p => p.MainCategory)
                 .FirstAsync(p => p.Id == id);
             context.Articles.Remove(model);
             await context.SaveChangesAsync();
-            return RedirectToAction("Articles",new { id = model.MainCategory.Id });
+            return RedirectToAction("Articles", new { id = model.MainCategory.Id });
         }
         [HttpGet("editArticle/{id}")]
         public async Task<IActionResult> Edit(int id)
@@ -61,15 +69,25 @@ namespace JustManAdmin.Controllers
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> EditArticle(Article model)
+        public async Task<IActionResult> EditArticle(Article model, IFormFile img)
         {
             var oldModel = await context.Articles
-                .Include(p=> p.MainCategory)
+                .Include(p => p.MainCategory)
                 .FirstAsync(p => p.Id == model.Id);
+            if (img != null)
+            {
+                var filePath = Path.Combine(Path.GetFullPath("wwwroot/imgs/"), img.FileName);
+                using (var stream = System.IO.File.Create(filePath))
+                {
+                    await img.CopyToAsync(stream);
+                }
+                model.ImgPath = "/imgs/" + img.FileName;
+                oldModel.ImgPath = model.ImgPath;
+            }
             oldModel.Title = model.Title;
             oldModel.Text = model.Text;
             await context.SaveChangesAsync();
-            return RedirectToAction("Articles",new { id = oldModel.MainCategory.Id });
+            return RedirectToAction("Articles", new { id = oldModel.MainCategory.Id });
         }
     }
 }

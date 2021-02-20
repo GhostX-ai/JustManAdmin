@@ -14417,6 +14417,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/ghostx/Documents/Projects/JustManAdmin/Views/User/EditPassword.cshtml",
+      "TargetPath": "Views\\User\\EditPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/ghostx/Documents/Projects/JustManAdmin/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"

@@ -2,20 +2,26 @@
 @{
     ViewData["Title"] = Model.Title;
 }
-<form asp-controller="Article" asp-action="EditArticle" asp-antiforgery="true">
+<form asp-controller="Article" asp-action="EditArticle" asp-antiforgery="true" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
-        <input type="hidden" asp-for="Id" value="@Model.Id"/>
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
         <div>
             <label>Title</label>
-            <input type="text" asp-for="Title" value="@Model.Title"/>
+            <input type="text" asp-for="Title" value="@Model.Title" />
         </div>
         <div>
             <label>Text</label>
             <textarea asp-for="Text">@Model.Text</textarea>
         </div>
         <div>
-            <input type="submit" value="Edit" onclick="return(confirm('Are you sure?'))"/>
+            <img src="@Model.ImgPath" />
+            <label>Image</label>
+            <input type="file" name="img" />
+            <span asp-validation-for="ImgPath"></span>
+        </div>
+        <div>
+            <input type="submit" value="Edit" onclick="return(confirm('Are you sure?'))" />
         </div>
     </div>
 </form>

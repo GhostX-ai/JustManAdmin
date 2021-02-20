@@ -17,6 +17,7 @@ namespace JustManAdmin
 {
     public class Startup
     {
+        readonly string myAllowedSpecifics = "JustManOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,16 +29,24 @@ namespace JustManAdmin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<DataContext>(options=>
+            services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options=>
+                .AddCookie(options =>
                 {
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/User/SignIn");
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/User/SignIn");
                 });
+            services.AddCors(options=>
+            {
+                options.AddPolicy(name:myAllowedSpecifics,
+                builder=>
+                {
+                    builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +66,8 @@ namespace JustManAdmin
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCors(myAllowedSpecifics);
 
             app.UseAuthentication();
             app.UseAuthorization();

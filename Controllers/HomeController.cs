@@ -28,14 +28,8 @@ namespace JustManAdmin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(MainCategory model, IFormFile img)
+        public async Task<IActionResult> Add(MainCategory model)
         {
-            var filePath = Path.Combine(Path.GetFullPath("wwwroot/imgs/"), img.FileName);
-            using (var stream = System.IO.File.Create(filePath))
-            {
-                await img.CopyToAsync(stream);
-            }
-            model.ImgPath = "/imgs/" + img.FileName;
             context.MainCategories.Add(model);
             await context.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -64,16 +58,6 @@ namespace JustManAdmin.Controllers
         public async Task<IActionResult> EditM(MainCategory model, IFormFile img)
         {
             var oldModel = await context.MainCategories.FirstAsync(p => p.Id == model.Id);
-            if (img != null)
-            {
-                var filePath = Path.Combine(Path.GetFullPath("wwwroot/imgs/"), img.FileName);
-                using (var stream = System.IO.File.Create(filePath))
-                {
-                    await img.CopyToAsync(stream);
-                }
-                model.ImgPath = "/imgs/" + img.FileName;
-                oldModel.ImgPath = model.ImgPath;
-            }
             oldModel.Name = model.Name;
             await context.SaveChangesAsync();
             return RedirectToAction("Index");

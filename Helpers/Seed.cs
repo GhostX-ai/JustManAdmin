@@ -14,7 +14,7 @@ namespace JustManAdmin.Helpers
                     Login = "Admin",
                     Password = Hashing.CreateMD5("1234")
                 };
-                user.Role = context.Roles.First(p=> p.Id == 1);
+                user.Role = context.Roles.First(p=> p.Name == "Admin");
                 context.Users.Add(user);
                 context.SaveChanges();
             }
